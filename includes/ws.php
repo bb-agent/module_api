@@ -40,7 +40,7 @@ class WebService {
 		// Set up session
 		$this->s = new Requests_Session($this->global_webserver);
 		$this->s->headers['Accept'] = 'application/json';
-		$this->s->useragent = 'RESTful API [FruityWiFi]';
+		$this->s->useragent = 'RESTful API [BlackBlulb]';
 		
 		// Set up login user/pass | token
 		$this->token = $token;

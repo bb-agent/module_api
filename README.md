@@ -1,4 +1,4 @@
 module_api
 ============
 
-FruityWiFi API module
+BlackBlulb API module

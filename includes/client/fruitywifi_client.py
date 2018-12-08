@@ -22,7 +22,7 @@ def usage():
     print "-s <server>,  --server=<server>       FruityWiFi server [http{s}://ip:port]."
     print "-h                                    Print this help message."
     print ""
-    print "FruityWiFi: http://www.fruitywifi.com"
+    print "FruityWiFi: http://www.blackbulb.com"
     print ""
 
 def parseOptions(argv):

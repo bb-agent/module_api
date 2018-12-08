@@ -528,7 +528,7 @@ class WebService {
 		//include "functions.php";
 		
 		$exec = "mpstat | awk '\\$12 ~ /[0-9.]+/ { print 100 - \\$12 }'";
-		$out = exec_fruitywifi($exec);
+		$out = exec_blackbulb($exec);
 		
 		echo json_encode($out);
 	}
@@ -539,7 +539,7 @@ class WebService {
 		
 		$exec = "free | grep Mem | awk '{print \\$3/\\$2 * 100.0}'";
 		$exec = "free | awk 'FNR == 3 {print \\$3/(\\$3+\\$4)*100}'";
-		$out = exec_fruitywifi($exec);
+		$out = exec_blackbulb($exec);
 		
 		echo json_encode($out);
 	}
@@ -584,7 +584,7 @@ class WebService {
     // GET CONFIG ALL [CORE]
 	public function getConfigCoreAll()
 	{
-		$output = $this->loadVariables("/usr/share/fruitywifi/www/config/config.php");
+		$output = $this->loadVariables("/usr/share/blackbulb/www/config/config.php");
 		
 		//$output = ${$param};
 		echo json_encode($output);
@@ -594,7 +594,7 @@ class WebService {
 	public function getConfigCore($param)
 	{
 		//include "functions.php";
-		include "/usr/share/fruitywifi/www/config/config.php";
+		include "/usr/share/blackbulb/www/config/config.php";
 		
 		$output = ${$param};
 		echo json_encode($output);
@@ -605,8 +605,8 @@ class WebService {
 	{
 		//include "functions.php";
 		
-		$exec = "/bin/sed -i 's/$param=.*/$param=\\\"".$value."\\\";/g' /usr/share/fruitywifi/www/config/config.php";
-		exec_fruitywifi($exec);
+		$exec = "/bin/sed -i 's/$param=.*/$param=\\\"".$value."\\\";/g' /usr/share/blackbulb/www/config/config.php";
+		exec_blackbulb($exec);
 		
 		echo json_encode($value);
 	}
@@ -614,7 +614,7 @@ class WebService {
 	// GET CONFIG ALL [MODULE]
 	public function getConfigModuleAll($module)
 	{
-		$output = $this->loadVariables("/usr/share/fruitywifi/www/modules/$module/_info_.php");
+		$output = $this->loadVariables("/usr/share/blackbulb/www/modules/$module/_info_.php");
 		
 		//$output = ${$param};
 		echo json_encode($output);
@@ -624,7 +624,7 @@ class WebService {
 	public function getConfigModule($module, $param)
 	{
 		//include "functions.php";
-		include "/usr/share/fruitywifi/www/modules/$module/_info_.php";
+		include "/usr/share/blackbulb/www/modules/$module/_info_.php";
 		
 		$output = ${$param};
 		echo json_encode($output);
@@ -635,8 +635,8 @@ class WebService {
 	{
 		//include_once "functions.php";
 		
-		$exec = "/bin/sed -i 's/$param=.*/$param=\\\"".$value."\\\";/g' /usr/share/fruitywifi/www/modules/$module/_info_.php";
-		exec_fruitywifi($exec);
+		$exec = "/bin/sed -i 's/$param=.*/$param=\\\"".$value."\\\";/g' /usr/share/blackbulb/www/modules/$module/_info_.php";
+		exec_blackbulb($exec);
 		
 		echo json_encode($value);
 	}
